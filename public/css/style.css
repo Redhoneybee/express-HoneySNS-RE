@@ -1,0 +1,541 @@
+/* moblie */
+#main-header{
+  position : relative;
+  width : 100%;
+}
+
+/* top-bar */
+
+#main-header > div.top-bar{
+  position : fixed;
+  top : 0;
+  width : 100%; height : 40px;
+  background : #383C51;
+  z-index : 7000;
+}
+#main-header > div.top-bar > div.wrap {position : relative; overflow : hidden;}
+#main-header > div.top-bar > div.wrap div.menu-btn{
+  display : block;
+  font-size : 16px; font-weight : bold;
+  width : 80px; height : 40px; line-height : 40px;
+  color : white;
+  text-align : center;
+  cursor : pointer;
+  text-transform : uppercase;
+}
+/* top-btn */
+#main-header > div.top-bar > div.wrap > div.sign-box{
+  position : absolute;
+  width : 80px; height : 40px;
+  top : 0; right : 0;
+  overflow : hidden;
+}
+#main-header > div.top-bar > div.wrap > div.sign-box > div.top-btn{
+  font-size : 16px; font-weight : bold;
+  width : 80px; height : 40px; line-height : 40px;
+  color : white;
+  text-align : center;
+  float : left;
+  cursor : pointer;
+  text-transform : uppercase;
+}
+#main-header > div.top-bar > div.wrap > div.sign-box > div.top-btn:focus
+,#main-header > div.top-bar > div.wrap div.menu-btn:focus{
+  outline : none;
+}
+#main-header > div.top-bar > div.wrap > div.logo{
+  position : absolute;
+  top : 5px; left : 41%;
+}
+#main-header > div.top-bar > div.wrap > div.logo > div.title{
+  font-size : 1.5em; font-weight : bold;
+  color : #AF9967;
+  width : 80px; height : 40px; line-height : 40px;
+  text-align : center;
+  font-family: 'Galada', cursive;
+  letter-spacing : -1px;
+}
+#main-header > div.top-bar > div.wrap > div.logo > div.title> small{
+  position : relative;
+  color : white;
+  top : -6px; left : -3px;
+  font-size : 0.7em; font-weight : none;
+  letter-spacing : 2px;
+}
+/* slider */
+#main-header > div.swiper-container{
+  top : 40px;
+  margin : 0;
+  width : 100%; height : 400px;
+  z-index : 1000;
+}
+#main-header > div.swiper-container > div.swiper-wrapper >div.swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+}
+#main-header > div.swiper-container > div.swiper-wrapper > div.swiper-slide> img{
+  max-width : 100%;
+  height : 100%;
+}
+
+/* menu */
+/* bottom-gnb */
+html.open{overflow : hidden; background : rgba(0, 0, 0, 0.4);}
+div.main-menu{
+  position : fixed;
+  z-index : 8888;
+  top : 0px; left : -220px;
+  width : 200px; height : 100%;
+  background : #383C51;
+  overflow : hidden;
+}
+
+div.main-menu > div.wrap > nav.top-gnb{
+  position : absolute;
+  top : 0;
+  width : 100%; height : 40px;
+  border-bottom : 1px solid #ddd;
+  font-size : 16px; font-weight : bold;
+  color : #fff;
+}
+div.main-menu > div.wrap > nav.top-gnb > div.home-btn{
+  display : block;
+  width : 80px; height : 40px; line-height : 40px;
+  text-align : center;
+  float : left;
+}
+/* profile */
+
+div.main-menu > div.wrap {position : relative;}
+div.main-menu > div.wrap > div.profile {
+  position : absolute;
+  top : 70px;
+  width : 100%; height : 200px;
+  border-top : 1px solid #ddd;
+  border-bottom : 1px solid #ddd;
+}
+div.main-menu > div.wrap > div.profile > div.profile-image{
+  position : absolute; top : 40px; left : 30%;
+}
+div.main-menu > div.wrap > div.profile > div.profile-image > img{
+  border-radius : 20px;
+}
+div.main-menu > div.wrap > div.profile > div.profile-name{
+  display : block;  position : absolute;
+  top : 130px;
+  width : 100%;
+  font-size : 24px; font-weight : bold;
+  letter-spacing : -1px;
+  color : white;
+  text-align : center;
+}
+/* gnb */
+div.main-menu > div.wrap > nav.gnb{
+  position : absolute;
+  top : 320px;
+}
+
+div.main-menu > div.wrap > nav.gnb > ul > li {
+  padding-left : 60px;
+}
+div.main-menu > div.wrap > nav.gnb > ul > li > a{
+  display : block; padding-bottom : 20px;
+  font-size : 16px; font-weight : bold;
+  color : #444;
+}
+
+aside.main-aside{
+  position : fixed;
+  bottom : 0; right : 30px;
+}
+aside.main-aside > div.wrap{
+  width : 50px; height : 110px;
+}
+aside.main-aside > div.wrap > div.aside-btn{
+  display : block;
+  float : left;
+  font-size : 30px; font-weight : bold;
+  text-align : center;
+  width : 50px; height : 50px; line-height : 50px;
+  margin-bottom : 5px;
+  border-radius : 50px;
+  color : white;
+  background : #D05C41;
+  cursor : pointer;
+  z-index : 2000;
+}
+aside.main-aside > div.wrap > div.aside-btn:hover{
+  background : #fefefe;
+  color : #383C51;
+}
+aside.main-aside > div.wrap > #aside-add-btn{font-size : 18px; letter-spacing : -1;}
+
+/* main-section */
+#main-section{
+  position : absolute;
+  top : 450px;
+  width : 100%; height : 100%;
+  z-index : 100;
+}
+#main-section > #content-wrap {margin : 20px 40px;}
+#main-section > #content-wrap > div.content{
+  display : block;
+  position : relative;
+  width : 95%; height: 380px;
+  border : 1px solid gray;
+  padding : 0 5px;
+  margin-top : 20px;
+  border-left : 10px solid #383C51;
+  box-shadow : 1px 1px 8px 1px #adb4b9;
+  z-index : 400;
+}
+#main-section > #content-wrap > div.content:hover{
+  border : 1px solid lightgray;
+  border-left : 10px solid #58AFCE;
+  box-shadow : 0 0 0 0 #fff;
+}
+/* section top */
+#main-section > #content-wrap >div.content > div.top-bar{
+  position : absolute;
+  top : 0px;
+  width : 100%; height : 40px;
+}
+#main-section > #content-wrap > div.content > div.top-bar > div.top-wrap{
+  position : relative;
+  width : 100%; height : 40px;
+}
+#main-section > #content-wrap > div.content > div.top-bar > div.top-wrap > div.writer-info{
+  position : absolute;
+  top : 5px;
+  width : 100%; height : 13px; line-height : 13px;
+  font-size : 12px; font-weight : bold;
+  color : #383C51;
+  overflow : hidden;
+}
+div.writer-info > div.writer
+,div.writer-info > div.write-date{
+  float : left;
+}
+div.writer-info > div.writer{
+  padding-right : 20px;
+}
+#main-section > #content-wrap > div.content > div.top-bar > div.top-wrap > div.content-title{
+  position : absolute;
+  bottom : 0;
+  font-size : 24px; font-weight : bold;
+  color : #383C51;
+  white-space : nowrap;
+  overflow : hidden;
+  text-overflow : ellipsis;
+}
+
+/* section description */
+#main-section > #content-wrap > div.content > section.description{
+  position : absolute;
+  width : 100%; height : 300px;
+  top : 50px;
+  overflow : hidden;
+  margin-bottom : 10px;
+  text-overflow : ellipsis;
+}
+section.description > div.section-wrap {
+  position : relative;
+  width : 95%; height : 100%;
+  padding : 20px 0;
+  overflow : hidden;
+}
+div.section-wrap article.image-art,
+div.section-wrap article.main-art{
+  float : left;
+}
+div.section-wrap article.main-art > p{
+  position : absolute;
+  padding-left : 10px;
+  display : block;
+}
+
+/* section bottom */
+#main-section > #content-wrap > div.content > div.bottom-bar{
+  position : absolute;
+  bottom : 0px;
+  width : 100%; height : 30px;
+  border-top : 0.5px solid lightgray;
+}
+
+div.bottom-bar > div.bottom-wrap{
+  position : absolute;
+  bottom : 8px; right : 10px;
+  width : 150px;height : 20px;
+  overflow : hidden;
+}
+div.bottom-bar > div.bottom-wrap > div.views
+,div.bottom-bar > div.bottom-wrap > div.good-btn
+,div.bottom-bar > div.bottom-wrap:last-child{
+  font-size : 14px; height : 20px; line-height : 20px;
+  float : left;
+  padding-right : 10px;
+  text-transform : uppercase;
+}
+div.bottom-bar > div.bottom-wrap:last-child {padding-right : 5px}
+
+/* modal */
+/* login */
+div.modal{
+  position:absolute;
+
+  border-top : 30px solid #383C51;
+  border-radius : 15px;
+  z-index : 9999;
+}
+div.modal > div.wrap{
+  position : relative;
+}
+div.modal > div.wrap > div.title{
+  position : absolute;
+  top : 40px; left : 50%;
+  transform : translate(-50%, -50%);
+}
+div.modal > div.wrap > div.title > h3.title-name{
+  display : block;
+  width : 100px; height : 35px; line-height : 35px;
+  font-size : 24px; font-weight : bold;
+  text-align : center;
+  color : white;
+  background : #383C51;
+  border-radius : 10px;
+}
+#modal-login{
+  display : block;
+  width : 360px; height : 300px;
+  top : -50%; left : 50%;
+  transform: translate(-50%, -50%);
+  background : #fefefe;
+}
+
+#modal-login > div.wrap > form.login-form{
+  position : absolute;
+  top : 120px; left : 50%;
+  transform : translate(-50%, -50%);
+}
+#modal-login > div.wrap > form.login-form label{
+  font-size : 18px; font-weight : bold;
+  letter-spacing : -1px;
+}
+#modal-login > div.wrap > form.login-form > table tr:first-child{ }
+#modal-login > div.wrap > form.login-form > table tr td:first-child{
+  padding : 5px 10px;
+}
+#modal-login > div.wrap > form.login-form > table input{
+  padding : 5px 10px;
+  border-radius : 5px;
+}
+#modal-login > div.wrap > form.login-form > table input:focus{outline-color : #383C51;}
+
+#modal-login > div.wrap > form.login-form > div.modal-login-btns{
+  position : absolute;
+  overflow : hidden;
+  width : 200px; height : 65px;
+  top : 120px; left : 50%;
+  transform : translate(-50%, -50%);
+}
+#modal-login > div.wrap > form.login-form > div.modal-login-btns > div.modal-login-btn{
+  display : block;
+  width : 100%; height : 30px; line-height : 30px;
+  margin-bottom : 5px;
+  background : #383C51;
+  color : white;
+  font-size : 20px; font-weight : bold;
+  text-align : center;
+  text-transform : uppercase;
+  cursor : pointer;
+  border-radius : 10px;
+}
+#modal-login > div.wrap > form.login-form > div.modal-login-btns > div.modal-login-btn:last-child{
+  background : #EAD6BD;
+  color : #AE4951;
+  margin-bottom : 0;
+}
+#modal-login > div.wrap > #local-signup{
+  position : absolute;
+  top : 260px;
+  width : 100%; height : 16px; line-height : 16px;
+  font-size : 16px;
+  text-align : center;
+}
+#modal-login > div.wrap > #local-signup > a{
+  text-decoration-line : underline;
+}
+/* add */
+.input-box{
+    position : relative;
+    -moz-appearance: textfield;
+    -webkit-appearance: textfield;
+    background-color: white;
+    background-color: -moz-field;
+    border: 1px solid darkgray;
+    border-radius : 5px;
+    box-shadow: 1px 1px 1px 0 lightgray inset;
+    font: -moz-field;
+    font: -webkit-small-control;
+    margin-top: 5px;
+    padding: 2px 3px;
+}
+#modal-post{
+  display : block;
+  width : 360px; height : 600px;
+  top : -50%; left : 50%;
+  transform: translate(-50%, -50%);
+  background : #fefefe;
+}
+#post-content{
+  width : 300px; height : 360px;
+  font-size : 16px;
+  overflow : hidden;
+}
+#modal-post > div.wrap > form.post-form{
+  position : absolute;
+  top : 290px; left : 50%;
+  transform : translate(-50%, -50%);
+}
+#modal-post form.post-form > div.post-top-wrap{
+  overflow : hidden;
+  height : 40px;
+}
+div.file-box{
+  float : left;
+}
+div.file-box > label{
+  display : inline-block;
+  font-weight : bold;
+  padding : 5px 7px;
+  color : #fefefe; background : #383C51;
+  border : 1px solid #fefefe;
+  border-radius : 8px;
+}
+div.file-box > label:hover{
+  color : #383C51; background : #fefefe;
+  border : 1px solid #383C51;
+}
+div.file-box > input[type="file"] {
+  position : absolute;
+  width : 1px; height : 1px;
+  padding : 0px; margin : -1px;
+  border : 0;
+  clip : rect(0, 0, 0, 0);
+}
+
+#post-name{
+  width : 230px; height : 24px;
+  font-size : 14px; line-height : 24px;
+  font-weight : bold;
+  float : left;
+  margin : 0;
+  margin-right : 20px;
+}
+
+#modal-post div.modal-upload-btn{
+  position : absolute;
+  top : 450px; left : 50%;
+  transform : translate(-50%, -50%);
+
+  display : block;
+  padding : 10px 20px;
+  font-size : 16px; font-weight : bold;
+  height : 16px; line-height : 16px;
+  text-align : center;
+  text-transform : uppercase;
+  color : #fefefe; background : #383C51;
+  border-radius : 10px;
+}
+
+/* post content img box */
+#modal-post figure.img-box{
+  position : absolute;
+  width : 360px; height : 120px;
+  top : 0px; left : 0px;
+}
+#modal-post figure.img-box > div.img-panel{
+  width : 1200px; height : 120px;
+  background : rgba(0, 0, 0, 0.2);
+  overflow : hidden;
+}
+#modal-post figure.img-box > div.img-panel > img{
+  margin : 20px 10px;
+  width : 80px; height : 80px;
+  float : left;
+}
+
+/* post content write box*/
+#modal-post article{position : absolute;}
+#modal-post article:nth-child(1){top : 10px;}
+#modal-post article:nth-child(2){top : 130px;}
+
+
+
+/* sign up page */
+
+#main-section > #content-wrap div.signup-wrap {
+  margin : 20px 40px;
+}
+#main-section > #content-wrap div.signup-wrap > .title{
+  width : 100%; height : 34px; line-height : 34px;
+  font-size : 32px; font-weight : bold;
+  text-align : center;
+  color : #383C51;
+  border-bottom : 5px solid #383C51;
+}
+
+#main-section > #content-wrap div.signup-wrap > .title > h3{
+  text-transform : uppercase;
+}
+
+#main-section > #content-wrap div.signup-wrap > .signup-form{
+  margin-top : 30px;
+}
+#main-section > #content-wrap div.signup-wrap > .signup-form table{
+  margin : 0;
+  margin : 0 20px;
+  width : 100%;
+}
+#main-section > #content-wrap div.signup-wrap > .signup-form table tr td:first-child{
+  font-size : 18px; font-weight : bold;
+  text-transform : uppercase;
+  color : #383C51;
+}
+#main-section > #content-wrap div.signup-wrap > .signup-form table tr td:last-child input{
+  padding : 5px;
+  border-radius : 5px;
+}
+#main-section > #content-wrap div.signup-wrap > .signup-form .signup-btns{
+  width : 100%; height : 60px;
+  text-align : center;
+  margin-top : 10px;
+}
+
+#main-section > #content-wrap div.signup-wrap > .signup-form .signup-btns .btn{
+  height : 24px; line-height : 24px;
+  font-size : 18px; font-weight : bold;
+  padding : 5px 10px;
+  margin-bottom : 5px;
+
+  background : #383C51;
+  color : #fefefe;
+}
+#main-section > #content-wrap div.signup-wrap > .signup-form .signup-btns .btn:hover{
+  background : #fefefe;
+  color : #383C51;
+}

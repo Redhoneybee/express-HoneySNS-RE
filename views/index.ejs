@@ -1,0 +1,295 @@
+<%- include ('header.ejs') %>
+  <title>Document</title>
+</head>
+<script>
+  /// init page setting
+  const user = '<%= username %>';
+  if(user === 'undefined'){ user = undefined; }
+
+  function setWhenLogin(){
+    $('.profile-name').text(user);
+    $('.main-menu .gnb ul li').map(function(){
+      $(this).children().css('color', '#fff');
+      $(this).children().removeClass('disabled');
+    });
+  }
+
+  $(document).ready(function() {
+    if(user !== undefined) setWhenLogin();
+  });
+</script>
+<body>
+  <header id = "main-header">
+    <div class = "top-bar">
+      <div class = "wrap">
+        <div class = "menu-btn">menu</div>
+        <div class = "logo">
+          <div class = "title">
+            <small>Together</small>US
+          </div>
+        </div>
+        <div class = "sign-box">
+          <% if(username == undefined){ %>
+            <div id = "top-login" class = "top-btn">login</div>
+          <%}else{%>
+            <div id = "top-post" class = "top-btn">post</div>
+          <%}%>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class = "swiper-slide"><img src="images/animate/slider-1.png"></div>
+        <div class = "swiper-slide"><img src="images/animate/slider-2.png"></div>
+        <div class = "swiper-slide"><img src="images/animate/slider-3.png"></div>
+        <div class = "swiper-slide"><img src="images/animate/slider-4.png"></div>
+        <div class = "swiper-slide"><img src="images/animate/slider-5.png"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- login modal  -->
+  <div id = "modal-login" class = "modal">
+    <div class = "wrap">
+      <div class = "title">
+        <h3 class = "title-name">LOGIN</h3>
+      </div>
+      <form class = "login-form" action="/auth/login" method = "post">
+        <table>
+          <tr>
+            <td><label for="username">username</label></td>
+            <td><input id = "username" name = "username" type="text" placeholder = "please, this input the id..." required></td>
+          </tr>
+          <tr>
+            <td><label for="password">password</label></td>
+            <td><input id = "password" name = "password" type="password" placeholder = "please, this input the password..." required></td>
+          </tr>
+        </table>
+        <div class = "modal-login-btns">
+          <div type = "submit" id = "local-login" class = "modal-login-btn">LOGIN</div>
+          <div id = "google-login" class = "modal-login-btn">GOOGLE</div>
+        </div>
+        <script>
+          $(document).ready(function(){
+            $('#local-login').click(() =>{
+              $('.login-form').submit();
+              return false;
+            });
+          });
+        </script>
+      </form>
+
+      <div id = "local-signup">
+        <a href="/signup-page">sign up</a>
+      </div>
+    </div>
+  </div>
+  <div class = "main-menu">
+    <div class = "wrap">
+      <nav class = "top-gnb">
+        <div class = "home-btn">HOME</div>
+      </nav>
+      <div class = "profile">
+        <div class = "profile-image">
+          <img src="http://placehold.it/80x80" width = "80" height = "80">
+        </div>
+        <div class = "profile-name">no-name</div>
+      </div>
+      <nav class = "gnb">
+        <ul>
+          <li><a href="#profile-menu" class = "disabled">My Post</a></li>
+          <li><a href="#profile-menu" class = "disabled">Message</a></li>
+          <li><a href="#profile-menu" class = "disabled">Issue</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div id = "modal-post" class = "modal">
+    <div class = "wrap">
+      <div class = "title">
+        <h3 class = "title-name">POST</h3>
+      </div>
+      <form class = "post-form" action="post">
+        <div class = "post-top-wrap">
+          <div id = "post-name" name = "postName" class = "input-box" contenteditable = "true">
+            input to subject
+          </div>
+          <div class = "file-box">
+            <label for="ex-file">IMG</label>
+            <input type="file" name = "img">
+          </div>
+        </div>
+        <div id = "post-content" name = "postContent" class = "input-box" contenteditable = "true">
+          <figure class = "img-box">
+            <div class = "img-panel">
+              <img data-img = "0" src="http://placehold.it/80x80/E8117F/ffffff?text=sample" width = "80" height = "80">
+              <img data-img = "0" src="http://placehold.it/80x80/E8117F/ffffff?text=sample" width = "80" height = "80">
+              <img data-img = "0" src="http://placehold.it/80x80/E8117F/ffffff?text=sample" width = "80" height = "80">
+              <img data-img = "0" src="http://placehold.it/80x80/E8117F/ffffff?text=sample" width = "80" height = "80">
+              <img data-img = "0" src="http://placehold.it/80x80/E8117F/ffffff?text=sample" width = "80" height = "80">
+              <img data-img = "0" src="http://placehold.it/80x80/E8117F/ffffff?text=sample" width = "80" height = "80">
+          </div>
+          </figure>
+          <article>
+            input to content
+          </article>
+        </div>
+        <div id = "upload" type = "submit" class = "modal-upload-btn">upload</div>
+      </form>
+    </div>
+  </div>
+  <script>
+    // menu slider
+    const paintMenuBar = () =>{
+      $('.main-menu').animate({
+        left : 0
+      }, 'slow');
+      $('html').addClass('open');
+      window.location.hash = "#profile-menu"
+    }
+    const removeMenuBar = () =>{
+      if(window.location.hash === "#profile-menu"){
+        $('.main-menu').animate({
+          left : -220
+        }, 'slow');
+        $('html').removeClass('open');
+        window.location.hash = "";
+      }
+    }
+    $(document).ready(function(){
+      window.location.hash = "";
+      $('.menu-btn').click((event) => {
+        event.stopImmediatePropagation();
+        console.log(window.location.hash);
+        if(window.location.hash === ''){
+          paintMenuBar();
+          closeWindow('.main-menu', hideLeftPopup,'220');
+        }
+      });
+      $('.home-btn').click((event) => {
+        event.stopImmediatePropagation();
+        event.preventDefault();
+        removeMenuBar();
+      });
+      scrollTo(0, 0);
+    });
+  </script>
+  <section id = "main-section">
+    <div id = "content-wrap">
+      <!-- content -->
+      <div class = "content">
+        <div class = "top-bar">
+          <div class = "top-wrap">
+            <div class = "writer-info">
+              <div class = "writer">w : no-name</div>
+              <div class = "write-date">2020/05/12/07:17</div>
+            </div>
+            <div class = " content-title">Lorem Ipsum</div>
+          </div>
+        </div>
+        <section class = "description">
+          <div class = "section-wrap">
+            <article class = "image-art">
+
+            </article>
+            <article class = "main-art">
+              <p>
+                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in theirinfancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+              </p>
+            </article>
+          </div>
+        </section>
+        <div class = "bottom-bar">
+          <div class = "bottom-wrap">
+            <div class = "views">view : <strong>0</strong></div>
+            <div class = "good-btn">good </div><strong>0</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class = "content">
+        <div class = "top-bar">
+          <div class = "top-wrap">
+            <div class = "writer-info">
+              <div class = "writer">w : no-name</div>
+              <div class = "write-date">2020/05/12/07:17</div>
+            </div>
+            <div class = " content-title">Where can I get some?</div>
+          </div>
+        </div>
+        <section class = "description">
+          <div class = "section-wrap">
+            <article class = "image-art">
+              <img src="http://placehold.it/120x120" width = "120" height = "120">
+            </article>
+            <article class = "main-art">
+              <p>
+                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in theirinfancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+              </p>
+            </article>
+          </div>
+        </section>
+        <div class = "bottom-bar">
+          <div class = "bottom-wrap">
+            <div class = "views">view : <strong>0</strong></div>
+            <div class = "good-btn">good </div><strong>0</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class = "content">
+        <div class = "top-bar">
+          <div class = "top-wrap">
+            <div class = "writer-info">
+              <div class = "writer">w : no-name</div>
+              <div class = "write-date">2020/05/12/07:17</div>
+            </div>
+            <div class = " content-title">Lorem Ipsum</div>
+          </div>
+        </div>
+        <section class = "description">
+          <div class = "section-wrap">
+            <article class = "image-art">
+
+            </article>
+            <article class = "main-art">
+              <p>
+                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in theirinfancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+              </p>
+            </article>
+          </div>
+        </section>
+        <div class = "bottom-bar">
+          <div class = "bottom-wrap">
+            <div class = "views">view : <strong>0</strong></div>
+            <div class = "good-btn">good </div><strong>0</strong>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</body>
+<script>
+  const swiper = new Swiper('.swiper-container',{
+    slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    autoplay: {
+       delay: 3000,
+       disableOnInteraction: false,
+    }
+  });
+</script>
+
+
+
+</html>
